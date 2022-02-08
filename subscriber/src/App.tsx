@@ -2,13 +2,15 @@ import axios from "axios";
 import React, { useCallback, useState } from "react";
 import "./App.css";
 
+const ENDPOINT_URL = "http://url.com/dev/";
+
 function App() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
   const submitForm = useCallback(() => {
     axios
-      .post("https://sszz4u4339.execute-api.us-east-1.amazonaws.com/dev/", {
+      .post(ENDPOINT_URL, {
         name,
         email,
       })
@@ -24,8 +26,9 @@ function App() {
       <div id="outer">
         <div id="inner">
           <p>
-            <h2>Subscribe to our newsletter</h2>
-            We'll use lambda to register(pretty cool huh?!)
+            <h1>Subscribe to our newsletter ✉️</h1>
+            We'll use lambda to register your email into a DynamoDB table(pretty
+            cool huh?!)
           </p>
           Name
           <input
@@ -44,6 +47,16 @@ function App() {
           <button type="submit" onClick={submitForm}>
             Send
           </button>
+          <p>
+            <i>
+              <a href="https://github.com/busycore/lambda-node-terraform-react">
+                You can get the <b>WHOLE</b> source code here 💻
+              </a>
+            </i>
+          </p>
+          <p>
+            <i className="footerMessage">Made with ❤️ by Matheus</i>
+          </p>
         </div>
       </div>
     </div>

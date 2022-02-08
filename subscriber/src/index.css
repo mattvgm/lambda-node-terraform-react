@@ -28,13 +28,16 @@ code {
   border-radius: 5px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 5px;
+  padding: 15px;
 }
 input {
   border-radius: 5px;
   margin-bottom: 10px;
   border: 1px solid #333333;
+  height: 20px;
+  padding: 5px;
 }
 button {
   width: 20%;
@@ -43,6 +46,7 @@ button {
   border: 1px solid #d39d22;
   margin-bottom: 10px;
   font-weight: bold;
+  height: 30px;
 }
 
 button:hover {
@@ -65,4 +69,12 @@ button:active {
   bottom: 0;
 
   width: 50%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.footerMessage {
+  font-size: small;
 }

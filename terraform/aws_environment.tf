@@ -222,7 +222,7 @@ resource "aws_apigatewayv2_route" "api_gw" {
 }
 
 resource "aws_cloudwatch_log_group" "api_gw_cloud" {
-  name = "/aws/api_gw/${aws_apigatewayv2_api.api_gtw.name}"
+  name = "/aws/apigw/${aws_apigatewayv2_api.api_gtw.name}"
 
   retention_in_days = 5
 }
@@ -234,4 +234,8 @@ resource "aws_lambda_permission" "api_gw_lambda_perm" {
   principal     = "apigateway.amazonaws.com"
 
   source_arn = "${aws_apigatewayv2_api.api_gtw.execution_arn}/*/*"
+}
+
+output "api_gw_url" {
+  value = format("%s/",aws_apigatewayv2_stage.apigw_stage.invoke_url)
 }
